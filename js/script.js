@@ -141,4 +141,4 @@ function translatePage() {
     }
     languages[lang] && languages[lang]()
 }
-// translatePage()
+translatePage()
