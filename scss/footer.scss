@@ -1,0 +1,40 @@
+@import './variables.scss';
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 260px;
+
+    & > h2 {
+        text-align: center;
+        color: $pmr-grayish-blue;
+        text-transform: uppercase;
+        transition: transform 300ms ease;
+    }
+}
+
+.links {
+    padding: 0 25px;
+    & button {
+        background-color: transparent;
+    }
+
+    & img {
+        padding: 5px;
+        width: 35px;
+        height: 35px;
+        transition: filter 300ms ease;
+
+        &:hover {
+            filter: brightness(10);
+            cursor: pointer;
+        }
+    }
+}
+
+.credits {
+    font-size: .7em;
+    a {
+        color: hsl(237deg, 19%, 48%);
+    }
+}

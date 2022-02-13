@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Countdown Maker">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Make a countdown and share it!">
+  <meta property="og:image" content="./images/thumbnail.png">
+  <meta name="theme-color" content="hsl(237,18%,59%)">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/website-icon.png">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <title>Countdown Maker</title>
+</head>
+<body class="d-flex justify-content-center align-items-center flex-column">
+  <main class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hills position-absolute"></div>
+    <h1 class="text-uppercase fs-1" id="countdown__title">Countdown to</h1>
+    <div class="countdown__date d-flex align-items-center">
+      <input type="datetime-local" class="fs-3 m-0 mx-2" value="2023-01-01T00:00" id="selectedDate" min="0001-01-01T00:00" max="9999-12-31T23:59"></input>
+    </div>
+
+    <section class="countdown__timer d-grid" id="countdownContainer">
+      <div class="container__years number d-none" id="yearContainer" data-name="years">
+        <div class="d-flex justify-content-center flex-column" id="years">0</div>
+      </div>
+      <div class="container__days number" data-name="days">
+        <div class="d-flex justify-content-center flex-column" id="days">0</div>
+      </div>
+      <div class="container__hours number" data-name="hours">
+        <div class="d-flex justify-content-center flex-column" id="hours">0</div>
+      </div>
+      <div class="container__minutes number" data-name="minutes">
+        <div class="d-flex justify-content-center flex-column" id="minutes">0</div>
+      </div>
+      <div class="container__seconds number" data-name="seconds">
+        <div class="d-flex justify-content-center infiniteTransition flex-column" id="seconds">0</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="d-flex flex-column justify-content-center mb-1" aria-label="Links to share this countdown">
+    <h2 class="fs-6">share this countdown</h2>
+    <div class="links d-flex justify-content-evenly">
+      <button onclick="copyToClipboard(this)"><img src="./images/link-svgrepo-com.svg" alt="Share the Link"></button>
+      <button onclick="share('facebook')"><img src="./images/icon-facebook.svg" alt="Share on Facebook"></button>
+      <button onclick="share('twitter')"><img src="./images/twitter-svgrepo-com.svg" alt="Share on Twitter"></button>
+    </div>
+    <h2 class="credits mt-2">made by <a href="https://www.github.com/Nick-Gabe" target="_blank">Nick Gabe</a>.</h2>
+  </footer>
+  <script src="./js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+@import './variables.scss';
+
+body {
+ position: relative;
+ font-size: 14px;   
+ background: url('../images/bg-stars.svg') repeat, $ntr-darker-blue;
+ background-position: bottom;
+ animation: animateBg linear 90s infinite alternate;
+ height: 100vh;
+ font-family: 'Red Hat Text', sans-serif;
+ overflow-x: hidden;
+}
+
+@keyframes animateBg {
+    50% {
+        background-position: 1280px 200px;
+    }
+    to {
+        background-position: bottom;
+    }
+}
+
+.hills {
+    background: url(../images/pattern-hills.svg) repeat-x;
+    width: 100%;
+    height: 100%;
+    background-position-y: bottom;
+    z-index: -2;
+}
+
+main {
+    color: $ntr-white;
+    
+    & h1 {
+        text-align: center;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+    }
+}
+
+.countdown__date {
+    color: $pmr-grayish-blue;
+    border: 0px solid currentColor;
+    transition: border 300ms 0s linear;
+    border-radius: 10px;
+    padding: 5px;
+    z-index: 1;
+    
+    & > input {
+        background-color: transparent;
+        color: inherit;
+        border: 0;
+        outline: none;
+
+        &::-webkit-calendar-picker-indicator {
+            filter: invert(60%) sepia(2%) saturate(3731%) hue-rotate(199deg) brightness(89%) contrast(93%);
+            position: relative;
+            bottom: 1px;
+            margin-left: -30px;
+        }
+    }
+    
+    &:hover {
+        cursor: pointer;
+        border: 3px solid currentColor;
+    }
+}
+
+
+.countdown__timer {
+    margin-top: 25px;
+    position: relative;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+    
+    &.withYear {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    & .number {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        max-height: 1.4em;
+        margin: .1em 0;
+        color: $pmr-soft-red;
+        font-size: 3em;
+        font-weight: 700;
+
+        &::after {
+            content: attr(data-name);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: $pmr-grayish-blue;
+            font-weight: 500;
+            position: absolute;
+            font-size: .2em;
+            bottom: -10px;
+        }
+    }
+
+    & .previous {
+        top: -10px;
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        height: 125vh;
+    }
+    .countdown__timer {
+        grid-template-columns: repeat(2, 1fr)!important;
+    }
+    .container__years {
+        grid-column: span 2;
+    }
+    main > h1 {
+        max-width: 16ch;
+    }
+}
