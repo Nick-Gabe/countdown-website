@@ -41,6 +41,7 @@ main {
 .countdown__date {
     color: $pmr-grayish-blue;
     border: 0px solid currentColor;
+    max-width: 310px;
     transition: border 300ms 0s linear;
     border-radius: 10px;
     padding: 5px;
@@ -108,10 +109,8 @@ main {
 }
 
 @media (max-width: 550px) {
-    body {
-        height: 125vh;
-    }
     .countdown__timer {
+        margin-bottom: 100px;
         grid-template-columns: repeat(2, 1fr)!important;
     }
     .container__years {
@@ -119,5 +118,8 @@ main {
     }
     main > h1 {
         max-width: 16ch;
+    }
+    .countdown__date {
+        width: 280px;
     }
 }
